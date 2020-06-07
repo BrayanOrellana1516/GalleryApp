@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoService } from '../../shared/services/Photo/photo.service';
 
 @Component({
   selector: 'app-galeria',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GaleriaPage implements OnInit {
 
-  constructor() { }
+  currentImage: any;
+
+  constructor(public photoService: PhotoService) {  }
 
   ngOnInit() {
+    this.photoService.loadSaved();
   }
 
 }
